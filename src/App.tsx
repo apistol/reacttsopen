@@ -1,5 +1,7 @@
 
 import React, {useState} from 'react'
+import InputFields from './components/InputFields'
+import TodoList from './components/TodoList'
 import {Todo} from "./model"
 
 const App:React.FC = () => {
@@ -7,17 +9,12 @@ const App:React.FC = () => {
   const [todo, setTodo] = useState<string>("")
   const [todos, setTodos] = useState<Todo[]>([])
 
-  console.log(todos)
-
   return (
     <div>
-      <input value={todo} onChange={(e) => {setTodo(e.target.value)}} type="text" />
-      <button onClick={() => {setTodos([...todos, { id: Date.now(), todo:todo, isDone:false}])}}>Add</button>
-
+      
       <div>
-        {todos.map((t:Todo) => (<p>
-          {t.todo}
-        </p>))}
+        <InputFields todo={todo} todos={todos} setTodo={setTodo} setTodos={setTodos}/>
+        <TodoList todo={todo} todos={todos} setTodo={setTodo} setTodos={setTodos}/>
       </div>
     </div>
   );
