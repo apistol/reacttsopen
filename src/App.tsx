@@ -14,6 +14,8 @@ const App:React.FC = () => {
       
       <div>
         <InputFields todo={todo} todos={todos} setTodo={setTodo} setTodos={setTodos}/>
+        <br/>
+        <br/>
         <TodoList todo={todo} todos={todos} setTodo={setTodo} setTodos={setTodos}/>
       </div>
     </div>
